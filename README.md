@@ -15,8 +15,7 @@
 4. [성능 튜닝 0에서 시작하는 부하 테스트](https://hyuns2.notion.site/0-3902ac90a22f802c8866f9d2392d698a)
 
 > 많은 기능을 만드는 대신, 위 질문들을 깊게 생각해보는 시간이었습니다.
-기능은 “주문/결제”, “전체/부분 취소”에 필요한 최소한으로 구현했습니다.
-> 
+> 기능은 “주문/결제”, “전체/부분 취소”에 필요한 최소한으로 구현했습니다.
 
 
 ## 🛠️ 기술 스택
@@ -33,11 +32,26 @@
 | Monitoring | Prometheus, Grafana |
 
 
+## 🗂️ 프로젝트 구조
+
+```
+playground-commerce_root/    # 현재 위치
+├─ gateway/                    # https://github.com/hyuns2/playground-commerce_gateway.git
+├─ catalog-service/            # https://github.com/hyuns2/playground-commerce_catalog-service.git
+├─ inventory-service/          # https://github.com/hyuns2/playground-commerce_inventory-service.git
+├─ order-service/              # https://github.com/hyuns2/playground-commerce_order-service.git      
+├─ payment-service/            # https://github.com/hyuns2/playground-commerce_payment-service.git
+├─ docker-compose.yml
+├─ .env
+└─ .dockerignore
+```
+
+
 ## 📊 DB 다이어그램
 <img width="1465" height="1039" alt="image" src="https://github.com/user-attachments/assets/5d6fddb4-a747-4c0d-b607-2561f1f37f6d" />
 
 
-## 🏗️ 아키텍처
+## 🏗️ 시스템 아키텍처
 <img width="1645" height="549" alt="image" src="https://github.com/user-attachments/assets/7e9049a0-fd36-4d5c-bdf5-2c14ec583dae" />
 ⬇️
 <img width="1645" height="781" alt="image" src="https://github.com/user-attachments/assets/4641ee0a-9907-46c4-8014-1aceb509a1b6" />
@@ -45,17 +59,6 @@
 
 ## 🚀 실행 방법
 ```
->> 🏗️ 구조
-workspace_playground/
-├─ gateway/
-├─ catalog-service/
-├─ inventory-service/
-├─ order-service/
-├─ payment-service/
-├─ docker-compose.yml
-├─ .env
-└─ .dockerignore
-
 >> ▶️ 실행
 1. 인프라 (MySQL, Kafka, Redis) 구축 & 환경변수 설정
 2. docker build -t <서비스 이미지명> <Dockerfile 경로>
