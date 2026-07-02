@@ -1,0 +1,77 @@
+name: playground-commerce
+
+x-common-service: &common-service
+  restart: unless-stopped
+  networks:
+    - my-network
+  healthcheck:
+    test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+    interval: 10s
+    timeout: 5s
+    retries: 5
+  environment:
+    TZ: Asia/Seoul
+    # JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=75.0"
+  env_file:
+    - .dev_env
+    - .service_env
+
+services:
+  gateway:
+    <<: *common-service
+    container_name: gateway
+    image: hyuns20103/gateway:latest
+    ports:
+      - "${GATEWAY_PORT}:8080"
+    # mem_limit: 1.5g
+    depends_on:
+      catalog-service:
+        condition: service_healthy
+      inventory-service:
+        condition: service_healthy
+      order-service:
+        condition: service_healthy
+      payment-service:
+        condition: service_healthy
+
+  catalog-service:
+    <<: *common-service
+    container_name: catalog-service
+    image: hyuns20103/catalog-service:latest
+    ports:
+      - "${CATALOG_PORT}:8080"
+    # mem_limit: 1.5g
+    
+  inventory-service:
+    <<: *common-service
+    container_name: inventory-service
+    image: hyuns20103/inventory-service:latest
+    ports:
+      - "${INVENTORY_PORT}:8080"
+    # mem_limit: 1g
+
+  order-service:
+    <<: *common-service
+    container_name: order-service
+    image: hyuns20103/order-service:latest
+    ports:
+      - "${ORDER_PORT}:8080"
+    # mem_limit: 1.5g
+
+  payment-service:
+    <<: *common-service
+    container_name: payment-service
+    image: hyuns20103/payment-service:latest
+    ports:
+      - "${PAYMENT_PORT}:8080"
+    # mem_limit: 1g
+
+# ⚠️ Requirements
+
+# 1. MySQL container must be running (name: mysql)
+# 2. Kafka container must be running (name: kafka)
+# 3. Redis container must be running (name: redis)
+# 4. Docker network `playground-network` must exist
+networks:
+  playground-network:
+    external: true
