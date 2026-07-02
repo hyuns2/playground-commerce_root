@@ -13,6 +13,7 @@
 2. [완전한 정합성을 갖춘 보상 트랜잭션, 어디까지 고려해야 하는가](https://hyuns2.notion.site/3902ac90a22f8015b9aedf76bd209e92)
 3. [요청이 2번 들어가서 발생하는 중복 요청 vs 진짜 한번 더 수행해야 하는 중복 요청](https://hyuns2.notion.site/2-vs-3902ac90a22f8024a0c3d5055ca2f8a7)
 4. [성능 튜닝 0에서 시작하는 부하 테스트](https://hyuns2.notion.site/0-3902ac90a22f802c8866f9d2392d698a)
+5. [한정된 재고에 달려드는 몇 천명, 실제로 버텨보기](https://hyuns2.notion.site/3912ac90a22f802f8859c1ac6043b33a)
 
 > 많은 기능을 만드는 대신, 위 질문들을 깊게 생각해보는 시간이었습니다.
 > 기능은 “주문/결제”, “전체/부분 취소”에 필요한 최소한으로 구현했습니다.
@@ -26,7 +27,7 @@
 | Persistence | MySQL 9, Spring Data JPA |
 | Messaging | Kafka 4 (비동기 이벤트) |
 | Cache | Redis 7 (Lua Script) |
-| Infra | Docker Compose, AWS EC2 |
+| Infra | Docker Compose, Github Actions, AWS EC2 |
 | Load test | K6 |
 | Monitoring Agents | Node Exporter, CAdvisor, Micrometer
 | Monitoring | Prometheus, Grafana |
