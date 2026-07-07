@@ -12,8 +12,7 @@
 1. [한정된 재고에 몇 천개의 동시 요청이 몰리면, 재고의 oversell을 어떻게 방지할건가](https://hyuns2.notion.site/oversell-3902ac90a22f80cbbd50ffaa6bce6312)
 2. [완전한 정합성을 갖춘 보상 트랜잭션, 어디까지 고려해야 하는가](https://hyuns2.notion.site/3902ac90a22f8015b9aedf76bd209e92)
 3. [요청이 2번 들어가서 발생하는 중복 요청 vs 진짜 한번 더 수행해야 하는 중복 요청](https://hyuns2.notion.site/2-vs-3902ac90a22f8024a0c3d5055ca2f8a7)
-4. [성능 튜닝 0에서 시작하는 부하 테스트](https://hyuns2.notion.site/0-3902ac90a22f802c8866f9d2392d698a)
-5. [한정된 재고에 달려드는 몇 천명, 실제로 버텨보기](https://hyuns2.notion.site/3912ac90a22f802f8859c1ac6043b33a)
+4. [튜닝 0부터 시작하여 AWS 프리티어 크레딧 한계까지, 로드 테스트와 성능 개선 반복하기](https://drive.google.com/file/d/1HDzVALc-Rc5ahZUDjqgKkEVDbcw0QGmL/view?usp=sharing)
 
 > 많은 기능을 만드는 대신, 위 질문들을 깊게 생각해보는 시간이었습니다.
 > 기능은 “주문/결제”, “전체/부분 취소”에 필요한 최소한으로 구현했습니다.
